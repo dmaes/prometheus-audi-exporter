@@ -1,0 +1,3 @@
+[submodule "audi_connect_ha"]
+	path = audi_connect_ha
+	url = https://github.com/arjenvrh/audi_connect_ha.git

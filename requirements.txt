@@ -1,0 +1,6 @@
+aiohttp
+bs4
+requests
+voluptuous
+
+prometheus-client
