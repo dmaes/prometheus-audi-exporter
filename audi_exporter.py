@@ -76,7 +76,8 @@ def set_metrics(vehicle):
 
 
   if vehicle.last_update_time_supported:
-      metrics["last_update_time"].labels(vehicle=title).set(vehicle.last_update_time.timestamp())
+    last_update_time = dt.strptime(vehicle.last_update_time, '%Y-%m-%dT%H:%M:%S')
+    metrics["last_update_time"].labels(vehicle=title).set(last_update_time.timestamp())
 
 
   if vehicle.remaining_charging_time_supported:
