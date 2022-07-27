@@ -36,7 +36,7 @@ metrics = {
   "plug_state": Enum("audi_plug_state", "Plug state", labels, states=["connected", "disconnected"]),
   "charging_state": Enum("audi_charging_state", "Charging state", labels, states=["off", "charging", "completed"]),
   "remaining_charging_time": Gauge("audi_remaining_charging_time", "Remaining charging time in minutes", labels),
-  "climatisation_state": Enum("audi_climatisation_state", "Climatisation state", labels, states=["off", "heating"]),
+  "climatisation_state": Enum("audi_climatisation_state", "Climatisation state", labels, states=["off", "heating", "cooling"]),
 }
 
 
