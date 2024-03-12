@@ -1,4 +1,5 @@
 aiohttp
+async-timeout
 bs4
 requests
 voluptuous

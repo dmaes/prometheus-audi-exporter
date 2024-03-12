@@ -34,7 +34,7 @@ metrics = {
   "trunk_unlocked": Gauge("audi_trunk_unlocked", "Is the trunk unlocked?", labels),
   "last_update_time": Gauge("audi_last_update_time", "Unixtime of the last update", labels),
   "plug_state": Enum("audi_plug_state", "Plug state", labels, states=["connected", "disconnected"]),
-  "charging_state": Enum("audi_charging_state", "Charging state", labels, states=["off", "charging", "completed"]),
+  "charging_state": Enum("audi_charging_state", "Charging state", labels, states=["off", "charging", "completed", "notReadyForCharging"]),
   "remaining_charging_time": Gauge("audi_remaining_charging_time", "Remaining charging time in minutes", labels),
   "climatisation_state": Enum("audi_climatisation_state", "Climatisation state", labels, states=["off", "heating", "cooling"]),
 }
@@ -76,7 +76,8 @@ def set_metrics(vehicle):
 
 
   if vehicle.last_update_time_supported:
-    last_update_time = dt.strptime(vehicle.last_update_time, '%Y-%m-%dT%H:%M:%S')
+    # last_update_time = dt.strptime(vehicle.last_update_time, '%Y-%m-%dT%H:%M:%S')
+    last_update_time = vehicle.last_update_time
     metrics["last_update_time"].labels(vehicle=title).set(last_update_time.timestamp())
 
 
